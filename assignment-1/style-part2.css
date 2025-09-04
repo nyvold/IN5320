@@ -1,0 +1,21 @@
+.currency-input {
+    display: flex;
+    gap: 3px;
+}
+
+#currency {
+    border-radius: 3px;
+    border-style: solid;
+}
+#search {
+    border-radius: 3px;
+    border-style: solid;
+}
+.delButton {
+    color: red;
+}
+
+.delButton:hover {
+    color: white;
+    background-color: darkred;
+}
