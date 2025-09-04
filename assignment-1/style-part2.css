@@ -2,12 +2,19 @@
     display: flex;
     gap: 3px;
 }
-
+.country-input {
+    display: flex;
+    gap: 3px;
+}
 #currency {
     border-radius: 3px;
     border-style: solid;
 }
-#search {
+#currency-search {
+    border-radius: 3px;
+    border-style: solid;
+}
+#country-search {
     border-radius: 3px;
     border-style: solid;
 }
