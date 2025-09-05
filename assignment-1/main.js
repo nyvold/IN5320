@@ -41,6 +41,7 @@ const fetchPopulation = async (country) => {
 const newCountryLi = async (country) => { // 5
     const list = document.getElementById("country-list")
     const inputField = document.getElementById("country")
+    const errorDiv = document.getElementById("country-error")
     
     if (country.trim() !== "" && validCountries.includes(country)) {
         const population = await fetchPopulation(country)
@@ -53,6 +54,9 @@ const newCountryLi = async (country) => { // 5
 
         list.appendChild(li)
         inputField.value = ""
+        errorDiv.textContent = ""
+    } else {
+        errorDiv.textContent = "Invalid country. Please enter a valid country name."
     }
 }
 
@@ -68,6 +72,21 @@ document.getElementById("country").addEventListener("keypress", (event) => {
             const inputField = document.getElementById("country")
             newCountryLi(inputField.value)
         }
+    }
+)
+
+document.getElementById("country-search").addEventListener("input", (event) => {
+        const list = document.getElementById("country-list")
+        const listItems = Array.from(list.getElementsByTagName("li"))
+        const searchWord = document.getElementById("country-search").value
+        if (searchWord === "") {
+            listItems.forEach(item => (item.style.display = ""))    
+        } else {
+            match = checkPrefix(listItems, searchWord)
+            listItems.forEach(item => (item.style.display = "none"))
+            match.forEach(item => (item.style.display = ""))
+        }
+        
     }
 )
 
