@@ -56,12 +56,17 @@ const newCountryLi = async (country) => { // 5
         inputField.value = ""
         errorDiv.textContent = ""
     } else {
-        errorDiv.textContent = "Invalid country. Please enter a valid country name."
+        errorDiv.textContent = `${country} is not a supported country`
+        errorDiv.style.visibility = "visible"
+        setTimeout(() => {
+            errorDiv.textContent = ""
+            errorDiv.style.visibility = "hidden"
+        }, 4000)
     }
 }
 
 document.getElementById("country-button").addEventListener("click", () => {
-        const inputField = document.getElementById("currency")
+        const inputField = document.getElementById("country")
         newCountryLi(inputField.value)
     }
 )
